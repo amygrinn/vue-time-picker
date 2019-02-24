@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+
+    #app {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript" src="dist/vue-time-picker.min.js"></script>
+</head>
+<body>
+
+  <div id="app" v-cloak>
+    <time-picker v-model="time" am-color="#84e554" pm-color="#722a96"></time-picker>
+  </div>
+  
+  <script>
+    Vue.use(TimePicker)
+    new Vue({
+      el: '#app',
+      data: () => ({
+        time: '8:00 AM',
+      })
+    })
+  </script>
+</body>
+</html>
