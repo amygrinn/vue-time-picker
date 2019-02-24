@@ -19,23 +19,18 @@ const common = {
         test: /\.ts$/,
         use: [
           {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          },
+          {
             loader: 'ts-loader',
             options: {
               transpileOnly: true
             }
           }
         ]
-      },
-      {
-        test: /\.js$/,
-        include: __dirname,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        }
       },
     ]
   },
