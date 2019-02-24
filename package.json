@@ -1,6 +1,6 @@
 {
   "name": "@tygr/vue-time-picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Time picker",
   "main": "index.js",
   "repository": {
@@ -14,6 +14,10 @@
     "serve": "http-server",
     "pub": "npm publish --access public"
   },
+  "files": [
+    "index.d.ts",
+    "dist"
+  ],
   "keywords": [
     "time",
     "picker",
