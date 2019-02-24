@@ -20,9 +20,6 @@ const common = {
         use: [
           {
             loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            }
           },
           {
             loader: 'ts-loader',
