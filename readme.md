@@ -2,6 +2,9 @@
 
 Simple, no nonsense time picker built and optimized for Vue.
 
+![mobile](time-picker-mobile.gif)
+![desktop](time-picker-desktop.gif)
+
 ## Installation
 
 ### Yarn
@@ -40,13 +43,16 @@ export default {
 }
 ```
 
+Time format is `h:mm A`
+
 ## Props
 
-| prop     | type   | default    | description                                     |
-| -------- | ------ | ---------- | ----------------------------------------------- |
-| am-color | string | 'green'    | Color of the slider when 'AM' is chosen         |
-| pm-color | string | 'blue'     | Color of the slider when 'PM' is chosen         |
-| value    | string | '12:00 AM' | The value of the time picker. (used by v-model) |
+| prop         | type   | default                               | description                                     |
+| ------------ | ------ | ------------------------------------- | ----------------------------------------------- |
+| am-color     | string | 'green'                               | Color of the slider when 'AM' is chosen         |
+| pm-color     | string | 'blue'                                | Color of the slider when 'PM' is chosen         |
+| value        | string | '12:00 AM'                            | The value of the time picker. (used by v-model) |
+| mobile-query | string | 'only screen and (max-width : 839px)' | Media query used to check if mobile user        |
 
 ## Events
 

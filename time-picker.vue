@@ -6,7 +6,7 @@
       <circle cx="50" cy="50" r="48" stroke-width="1" fill="none" stroke="black"/>
 
       <circle
-        v-if="phablet"
+        v-if="mobile"
         @touchmove.passive="touchHover"
         @touchend="touchSelect"
         cx="50" cy="50" r="48"
@@ -118,10 +118,10 @@
     </div>
 
     <div class="button-row">
-      <button class="btn-small btn-text" v-if="phablet && choosingHour" @click="choosingHour = false">Next</button>
+      <button class="btn-small btn-text" v-if="mobile && choosingHour" @click="choosingHour = false">Next</button>
       <button class="btn-small btn-text" v-else @click="showPopup = false; choosingHour = true">Done</button>
 
-      <button class="btn-small btn-text" v-if="!phablet && choosingHour" @click="choosingHour = false">Choose Minutes</button>
+      <button class="btn-small btn-text" v-if="!mobile && choosingHour" @click="choosingHour = false">Choose Minutes</button>
       <button class="btn-small btn-text" v-if="!choosingHour" @click="choosingHour = true">Choose Hour</button>
     </div>
   </div>
@@ -331,7 +331,6 @@ export default Vue.extend({
       if (this.pmColor) {
         result += '--pm-color: ' + this.pmColor + '; '
       }
-      console.log(result)
       return result
     },
   },
@@ -340,7 +339,12 @@ export default Vue.extend({
       this.setFieldsFromValue(this.value)
     }
 
-    this.phablet = window.matchMedia('only screen and (max-width : 839px) and (orientation: portrait)').matches
+    if (this.mobileQuery) {
+      this.mobile = window.matchMedia(this.mobileQuery).matches
+    } else {
+      this.mobile = window.matchMedia('only screen and (max-width : 839px)').matches
+    }
+
   },
   data: () => ({
     showPopup: false,
@@ -350,9 +354,9 @@ export default Vue.extend({
     hourHover: undefined,
     minuteHover: undefined,
     time: '12:00 AM',
-    phablet: false,
+    mobile: false,
   }),
-  props: ['value', 'amColor', 'pmColor'],
+  props: ['value', 'amColor', 'pmColor', 'mobileQuery'],
   methods: {
     emit() {
       this.$emit('input', this.time)
@@ -381,7 +385,6 @@ export default Vue.extend({
       this.emit()
     },
     setFieldsFromValue(value: string) {
-      console.log('setting from ', value)
       const time = value.match(/(\d+):(\d+)\s(.+)/)
 
       if (time && time.length === 4) {
@@ -398,7 +401,7 @@ export default Vue.extend({
     chooseHour(i: number) {
       this.hour = i
       this.hourHover = undefined
-      if (!this.phablet) {
+      if (!this.mobile) {
         this.choosingHour = false
       }
       this.setTimeFromFields()
@@ -414,7 +417,6 @@ export default Vue.extend({
       } else {
         this.minuteHover = this.getSelectionFromTouchEvent(ev, Math.PI / 30)
       }
-      console.log('touch hover')
     },
     touchSelect(ev) {
       if (this.choosingHour) {
@@ -422,23 +424,6 @@ export default Vue.extend({
       } else {
         this.chooseMinute(this.getSelectionFromTouchEvent(ev, Math.PI / 30))
       }
-      console.log('touch select')
-    },
-    touchHour(ev: any) {
-      console.log('touch hour')
-      this.hourHover = this.getSelectionFromTouchEvent(ev, Math.PI / 6)
-    },
-    touchMinute(ev: any) {
-      console.log('touch minute')
-      this.minuteHover = this.getSelectionFromTouchEvent(ev, Math.PI / 30)
-    },
-    touchChooseHour(ev: any) {
-      console.log('choosing hour')
-      this.chooseHour(this.getSelectionFromTouchEvent(ev, Math.PI / 6))
-    },
-    touchChooseMinute(ev: any) {
-      console.log('choose minute')
-      this.chooseMinute(this.getSelectionFromTouchEvent(ev, Math.PI / 30))
     },
     getSelectionFromTouchEvent(ev: any, unit: number) {
       const touch: any = ev.changedTouches[0]
