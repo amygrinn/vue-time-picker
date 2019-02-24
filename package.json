@@ -1,8 +1,8 @@
 {
   "name": "@tygr/vue-time-picker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Time picker",
-  "main": "index.js",
+  "main": "dist/vue-time-picker.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tylergrinn/vue-time-picker.git"
