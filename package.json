@@ -1,6 +1,6 @@
 {
   "name": "@tygr/vue-time-picker",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Time picker",
   "main": "dist/vue-time-picker.js",
   "repository": {

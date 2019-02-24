@@ -1,5 +1,6 @@
 # Vue Time Picker
 
+## [DEMO](https://vue-time-picker.tygr.info)
 Simple, no nonsense time picker built and optimized for Vue.
 
 ![mobile](time-picker-mobile.gif)
