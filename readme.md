@@ -25,7 +25,7 @@ export default {
 ### Browser
 ```html
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script type="text/javascript" src="dist/vue-time-picker.min.js" charset="utf-8"></script>
+<script src="https://unpkg.com/@tygr/vue-time-picker/dist/vue-time-picker.min.js" charset="utf-8"></script>
 <script>
   Vue.use(TimePicker)
 </script>
