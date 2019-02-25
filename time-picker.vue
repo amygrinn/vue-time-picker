@@ -314,7 +314,15 @@ export default Vue.extend({
     },
     hourHandDegrees(): number | undefined {
       if (this.hourHover === undefined) {
-        return this.hour === undefined ? undefined : this.minuteHandDegrees / 12 + this.hour * 30
+        if (this.hour === undefined) {
+          return undefined
+        }
+
+        if (this.minuteHandDegrees) {
+          return this.minuteHandDegrees / 12 + this.hour * 30
+        } else {
+          return this.hour * 30
+        }
       } else {
         if (this.minuteHandDegrees !== undefined) {
           return this.minuteHandDegrees / 12 + this.hourHover * 30
