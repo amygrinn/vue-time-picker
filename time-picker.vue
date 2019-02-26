@@ -7,7 +7,7 @@
 
       <circle
         v-if="mobile"
-        @touchmove.passive="touchHover"
+        @touchmove.passive.stop="touchHover"
         @touchend="touchSelect"
         cx="50" cy="50" r="48"
         class="sector"
