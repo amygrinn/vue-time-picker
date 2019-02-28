@@ -15,7 +15,7 @@
     "build:w": "cross-env NODE_ENV=development webpack -w",
     "unit": "mocha -r @babel/register -r jsdom-global/register time-picker.spec.js",
     "unit:w": "yarn run unit -w",
-    "e2e": "concurrently -k -s first \"http-server -s -p 8000\" \"cross-env PORT=8000 cypress run\"",
+    "e2e": "concurrently -k -s first \"http-server -s -p 8000\" \"cypress run\"",
     "e2e:w": "concurrently \"http-server -s -p 8000\" \"cypress open\""  
   },
   "files": [
