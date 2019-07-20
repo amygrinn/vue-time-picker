@@ -1,10 +1,10 @@
 # Vue Time Picker
 
-## [DEMO](https://vue-time-picker.tygr.info)
+<!-- ## [DEMO](https://vue-time-picker.tygr.info) -->
 Simple, no nonsense time picker built and optimized for Vue.
 
-![mobile](time-picker-mobile.gif)
-![desktop](time-picker-desktop.gif)
+![mobile](docs/time-picker-mobile.gif)
+![desktop](docs/time-picker-desktop.gif)
 
 ## Installation
 
