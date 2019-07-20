@@ -2,6 +2,7 @@ const merge = require('webpack-merge')
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
 const nodeExternals = require('webpack-node-externals')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const common = {
   output: {
@@ -57,15 +58,22 @@ const common = {
 
 module.exports = [
   merge(common, {
-    entry: './plugin.ts',
+    entry: './src/plugin.ts',
     output: {
       filename: 'vue-time-picker.min.js',
       libraryTarget: 'window',
       library: 'TimePicker'
-    }
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        filename: 'demo.html',
+        template: 'src/demo.html',
+        inject: 'head',
+      })
+    ]
   }),
   merge(common, {
-    entry: './time-picker.vue',
+    entry: './src/time-picker.vue',
     output: {
       filename: 'vue-time-picker.js',
       libraryTarget: 'umd',

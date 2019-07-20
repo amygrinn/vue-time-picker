@@ -13,14 +13,14 @@
     "test": "run-s unit e2e",
     "test:w": "run-p unit:w e2e:w",
     "build:w": "cross-env NODE_ENV=development webpack -w",
-    "unit": "mocha -r @babel/register -r jsdom-global/register time-picker.spec.js",
+    "unit": "mocha -r @babel/register -r jsdom-global/register tests/time-picker.spec.js",
     "unit:w": "yarn run unit -w",
-    "e2e": "concurrently -k -s first \"http-server -s -p 8000\" \"cypress run\"",
-    "e2e:w": "concurrently \"http-server -s -p 8000\" \"cypress open\""  
+    "e2e": "concurrently -k -s first \"http-server -s -p 8000 dist\" \"cypress run\"",
+    "e2e:w": "concurrently \"http-server -s -p 8000 dist\" \"cypress open\""
   },
   "files": [
     "index.d.ts",
-    "dist"
+    "dist/vue-time-picker.js"
   ],
   "keywords": [
     "time",
@@ -46,6 +46,7 @@
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "cypress": "^3.1.5",
+    "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.11.1",
     "jsdom": "^13.2.0",
     "jsdom-global": "^3.0.2",

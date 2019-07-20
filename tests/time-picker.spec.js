@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { expect } from 'chai'
 
-import './dist/vue-time-picker.min'
+import '../dist/vue-time-picker.min'
 
 let TimePicker
 
