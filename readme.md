@@ -1,6 +1,9 @@
 # Vue Time Picker
 
+[![Build Status](https://travis-ci.org/tylergrinn/vue-time-picker.svg?branch=master)](https://travis-ci.org/tylergrinn/vue-time-picker)
+
 ## [DEMO](http://vue-time-picker.surge.sh/demo.html)
+
 Simple, no nonsense time picker built and optimized for Vue.
 
 ![mobile](docs/time-picker-mobile.gif)
